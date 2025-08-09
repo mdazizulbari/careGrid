@@ -8,20 +8,26 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
 
 ## Organizer Credentials
 
-- **Email**: organizer@mcms.com
-- **Password**: MCMS@2025
+- **Email**: jhankar@vai.com
+- **Password**: Jhank123
 
 ---
 
 ## Project Links
 
-- **Front-end Live Site**: [MCMS Live](https://mcms-live.web.app) _(Update with your deployed URL)_
-- **Client-Side GitHub Repository**: [MCMS Client](https://github.com/yourusername/mcms-client) _(Update with your repo)_
-- **Server-Side GitHub Repository**: [MCMS Server](https://github.com/yourusername/mcms-server) _(Update with your repo)_
+- **Front-end Live Site**: [Care Grid Live](https://caregrid-a12.netlify.app/) 
 
 ---
 
-## Features
+## ✨ Core Features
+- **Appointment Management**: Schedule and manage medical appointments effortlessly.
+- **Secure Authentication**: Implements JWT for safe user access and data protection.
+- **Real-Time Updates**: Fetches and displays health data dynamically via APIs.
+- **Responsive Design**: Optimized for seamless use across desktop and mobile devices.
+
+---
+
+## All Features
 
 - **Responsive Design**: Optimized for mobile, tablet, and desktop using Tailwind CSS and Material Tailwind components.
 - **Dynamic Homepage**:
@@ -62,4 +68,37 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
 - **Frontend**: React, Vite, Tailwind CSS, Material Tailwind, Framer Motion, AOS, TanStack Query, React Hook Form, SweetAlert2, React-Awesome-Button, React-Select
 - **Backend**: Node.js, Express.js, MongoDB, JWT
 - **Payment**: Stripe
-- **Deployment**: Firebase (client), Vercel/Heroku (server) _(Update based on your deployment)_
+- **Deployment**: Netlify (client), Vercel/Heroku (server) 
+
+## 📦 Dependencies
+```json
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.3.9"
+  }
+}
+```
+
+## 🚀 How to Run Locally
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/mdazizulbari/careGrid.git
+   ```
+2. **Navigate to the Project Directory**:
+   ```bash
+   cd careGrid
+   ```
+3. **Install Dependencies**:
+   - For client:
+     ```bash
+     cd client
