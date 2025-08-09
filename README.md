@@ -15,11 +15,12 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
 
 ## Project Links
 
-- **Front-end Live Site**: [Care Grid Live](https://caregrid-a12.netlify.app/) 
+- **Front-end Live Site**: [Care Grid Live](https://caregrid-a12.netlify.app/)
 
 ---
 
 ## ✨ Core Features
+
 - **Appointment Management**: Schedule and manage medical appointments effortlessly.
 - **Secure Authentication**: Implements JWT for safe user access and data protection.
 - **Real-Time Updates**: Fetches and displays health data dynamically via APIs.
@@ -68,9 +69,10 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
 - **Frontend**: React, Vite, Tailwind CSS, Material Tailwind, Framer Motion, AOS, TanStack Query, React Hook Form, SweetAlert2, React-Awesome-Button, React-Select
 - **Backend**: Node.js, Express.js, MongoDB, JWT
 - **Payment**: Stripe
-- **Deployment**: Netlify (client), Vercel/Heroku (server) 
+- **Deployment**: Netlify (client), Vercel/Heroku (server)
 
 ## 📦 Dependencies
+
 ```json
 {
   "dependencies": {
@@ -102,3 +104,31 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
    - For client:
      ```bash
      cd client
+     npm install
+     ```
+   - For server:
+     ```bash
+     cd server
+     npm install
+     ```
+4. **Set Up Environment Variables**:
+   - Create a `.env` file in the `server` directory.
+   - Add: `MONGO_URI=your_mongo_uri`, `JWT_SECRET=your_jwt_secret`
+   - Create a `.env` file in the `client` directory.
+   - Add: `VITE_API_URL=your_backend_url`
+5. **Run the Backend**:
+   ```bash
+   cd server
+   npm start
+   ```
+6. **Run the Frontend**:
+   ```bash
+   cd client
+   npm run dev
+   ```
+7. Open `http://localhost:5173` in your browser.
+
+## 🔗 Resources
+- [React Documentation](https://react.dev/)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [MongoDB Documentation](https://www.mongodb.com/docs/)
