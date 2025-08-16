@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
-import { AiOutlineBars } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
+import { FaBarsStaggered } from "react-icons/fa6";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
@@ -11,13 +10,14 @@ import logo from "/logo.png";
 import OrganizerMenu from "./Menu/OrganizerMenu";
 import ParticipantMenu from "./Menu/ParticipantMenu";
 import MenuItem from "./Menu/MenuItem";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setIsActive] = useState(false);
   const [role, isRoleLoading] = useRole();
 
-  // Sidebar Responsive Handler
+  // Responsive Sidebar Handler
   const handleToggle = () => {
     setIsActive(!isActive);
   };
@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Small Screen Navbar */}
+      {/* Mobile Navbar */}
       <div className="bg-base-200 flex justify-between rounded-br-3xl rounded-bl-3xl md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
@@ -41,11 +41,8 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <button
-          onClick={handleToggle}
-          className="mobile-menu-button focus:bg-base-200 rounded-br-3xl p-4 focus:outline-none"
-        >
-          <AiOutlineBars className="h-5 w-5" />
+        <button onClick={handleToggle} className="mobile-menu-button p-4">
+          <FaBarsStaggered className="h-5 w-5" />
         </button>
       </div>
 
@@ -56,26 +53,28 @@ const Sidebar = () => {
         } transition duration-200 ease-in-out md:translate-x-0`}
       >
         <div>
-          <div>
-            <div className="bg-base-300 mx-auto hidden w-full items-center justify-center rounded-2xl px-4 py-2 shadow-lg md:flex">
-              <Link className="flex flex-col items-center" to="/">
-                <img
-                  // className='hidden md:block'
-                  src={logo}
-                  alt="logo"
-                  width="100"
-                />
-                <span className="font-gummy text-primary text-3xl">
-                  CareGrid
-                </span>
-              </Link>
-            </div>
-          </div>
+          <Link
+            className="bg-base-300 hover:bg-base-100 mx-auto flex w-full flex-col items-center justify-center rounded-2xl px-4 py-2 shadow-lg"
+            to="/"
+          >
+            <img
+              // className='hidden md:block'
+              src={logo}
+              alt="logo"
+              width="100"
+            />
+            <span className="font-gummy text-primary text-3xl">CareGrid</span>
+          </Link>
 
           {/* Nav Items */}
           <div className="mt-6 flex flex-1 flex-col justify-between">
             <nav>
               {/*  Menu Items */}
+              <MenuItem
+                icon={IoHomeOutline}
+                label="Home"
+                address="/dashboard/profile"
+              />
               {role === "participant" && <ParticipantMenu />}
               {role === "organizer" && <OrganizerMenu />}
             </nav>

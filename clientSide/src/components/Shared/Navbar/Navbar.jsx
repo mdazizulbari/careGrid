@@ -1,18 +1,85 @@
-import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import { AiOutlineMenu } from "react-icons/ai";
 import Container from "../Container";
 import logo from "/logo.png";
 import avatarImg from "../../../assets/images/placeholder.png";
 import { Link } from "react-router";
+import { FaBarsStaggered } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
+
+  const links = (
+    <>
+      <li>
+        <Link
+          to="/"
+          className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/available-camps"
+          className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
+        >
+          Available Camps
+        </Link>
+      </li>
+
+      {user ? (
+        <>
+          <li>
+            <Link
+              to="/dashboard"
+              className="hover:bg-base-300 px-4 py-3 font-semibold transition"
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <div
+              onClick={logOut}
+              className="hover:bg-base-300 cursor-pointer px-4 py-3 font-semibold transition"
+            >
+              Logout
+            </div>
+          </li>
+          <li>
+            <Link
+              to="/available-camps"
+              className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
+            >
+              Contact Developer
+            </Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link
+              to="/login"
+              className="hover:bg-base-300 px-4 py-3 font-semibold transition"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/signup"
+              className="hover:bg-base-300 px-4 py-3 font-semibold transition"
+            >
+              Join Us
+            </Link>
+          </li>
+        </>
+      )}
+    </>
+  );
 
   return (
     <div className="bg-base-200 fixed z-10 w-full rounded-br-4xl rounded-bl-4xl shadow-sm">
-      <div className="py-4">
+      <div className="py-2">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             <div className="flex gap-2">
@@ -45,7 +112,7 @@ const Navbar = () => {
 
               {/* Logo */}
               <Link
-                className="btn bg-base-300 flex items-center gap-1 rounded-full"
+                className="btn bg-base-300 hover:bg-base-100 flex items-center gap-1 rounded-full"
                 to="/"
               >
                 <img src={logo} alt="logo" className="h-8 w-8" />
@@ -55,81 +122,43 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Dropdown Menu */}
-            <div className="relative">
-              {/* Dropdown btn */}
-              <div
-                onClick={() => setIsOpen(!isOpen)}
-                className="btn bg-base-100 flex cursor-pointer flex-row items-center gap-3 rounded-full border-[1px] border-none p-4 transition hover:shadow-md md:px-2 md:py-1"
-              >
-                <div className="hidden md:block">
-                  {/* Avatar */}
-                  <img
-                    className="rounded-full"
-                    referrerPolicy="no-referrer"
-                    src={user && user.photoURL ? user.photoURL : avatarImg}
-                    alt="profile"
-                    height="30"
-                    width="30"
-                  />
-                </div>
-              </div>
-              {isOpen && (
-                <div className="bg-base-200 absolute top-12 right-0 w-[40vw] overflow-hidden rounded-xl text-sm shadow-md md:w-[20vw]">
-                  <div className="flex cursor-pointer flex-col text-center">
-                    {user && (
-                      <span className="cursor-not-allowed px-4 py-3 font-semibold">
-                        {user?.displayName}
-                      </span>
-                    )}
-                    <Link
-                      to="/"
-                      className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      to="/available-camps"
-                      className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
-                    >
-                      Available Camps
-                    </Link>
-
-                    {user ? (
-                      <>
-                        <Link
-                          to="/dashboard"
-                          className="hover:bg-base-300 px-4 py-3 font-semibold transition"
-                        >
-                          Dashboard
-                        </Link>
-                        <div
-                          onClick={logOut}
-                          className="hover:bg-base-300 cursor-pointer px-4 py-3 font-semibold transition"
-                        >
-                          Logout
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <Link
-                          to="/login"
-                          className="hover:bg-base-300 px-4 py-3 font-semibold transition"
-                        >
-                          Login
-                        </Link>
-                        <Link
-                          to="/signup"
-                          className="hover:bg-base-300 px-4 py-3 font-semibold transition"
-                        >
-                          Join Us
-                        </Link>
-                      </>
-                    )}
-                  </div>
-                </div>
-              )}
+            {/* Desktop Menu */}
+            <div className="hidden flex-none lg:flex">
+              <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
+
+            {/* Mobile Menu */}
+            <div className="dropdown dropdown-end lg:hidden">
+              <div tabIndex={0} role="button" className="btn btn-soft m-1">
+                <FaBarsStaggered />
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+              >
+                {links}
+              </ul>
+            </div>
+
+            {/* User Details */}
+            <Link
+              to={"/dashboard/profile"}
+              className="btn hover:bg-base-300 hidden items-center gap-2 lg:flex"
+            >
+              {user && (
+                <span className="font-semibold">{user?.displayName}</span>
+              )}
+
+              {/* Avatar */}
+              <figure className="">
+                <img
+                  className="h-10 w-10 rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                  src={user && user.photoURL ? user.photoURL : avatarImg}
+                  alt="profile"
+                />
+              </figure>
+            </Link>
           </div>
         </Container>
       </div>

@@ -19,7 +19,7 @@ const CampsSection = () => {
 
   const topCamps = camps
     .sort((a, b) => b.participantCount - a.participantCount)
-    .slice(0, 6);
+    .slice(0, 8);
 
   return (
     <div>
