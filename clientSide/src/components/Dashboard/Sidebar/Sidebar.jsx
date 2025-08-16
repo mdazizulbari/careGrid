@@ -66,14 +66,14 @@ const Sidebar = () => {
             <span className="font-gummy text-primary text-3xl">CareGrid</span>
           </Link>
 
-          {/* Nav Items */}
+          {/* Nav Items /dashboard/profile*/}
           <div className="mt-6 flex flex-1 flex-col justify-between">
             <nav>
               {/*  Menu Items */}
               <MenuItem
                 icon={IoHomeOutline}
                 label="Home"
-                address="/dashboard/profile"
+                address="/"
               />
               {role === "participant" && <ParticipantMenu />}
               {role === "organizer" && <OrganizerMenu />}

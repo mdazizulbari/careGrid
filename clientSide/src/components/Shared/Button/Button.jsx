@@ -1,11 +1,11 @@
 import React from "react";
 
-const Button = ({ label, onClick, disabled, sm, accent, icon: Icon }) => {
+const Button = ({ label, onClick, disabled, sm, outline, icon: Icon }) => {
   return (
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`btn ${sm ? "btn-sm" : ""} ${accent ? "btn-accent" : "btn-primary"} ${disabled ? "btn-disabled" : ""} `}
+      className={`btn btn-primary ${outline ? "btn-outline" : ""} ${sm ? "btn-sm" : ""}${disabled ? "btn-disabled" : ""} `}
     >
       {Icon && <Icon size={24} className="absolute top-3 left-4" />}
       {label}
