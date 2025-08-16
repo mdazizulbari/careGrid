@@ -92,7 +92,7 @@ const AvailableCamps = () => {
             </div>
 
             <button
-              className="btn mt-1"
+              className="btn mt-1 hidden xl:block"
               onClick={() => setFourColLayout(!fourColLayout)}
             >
               {fourColLayout ? "Switch to 6 Columns" : "Switch to 4 Columns"}
@@ -102,7 +102,8 @@ const AvailableCamps = () => {
 
         {sortedCamps.length > 0 ? (
           <div
-            className={`grid grid-cols-1 gap-8 pt-12 ${fourColLayout ? "md:grid-cols-4" : "md:grid-cols-6"} `}
+            // className={`grid grid-cols-1 gap-8 pt-12 ${fourColLayout ? "md:grid-cols-4" : "md:grid-cols-6"} `}
+            className={`grid grid-cols-1 gap-8 pt-12 md:grid-cols-1 lg:grid-cols-2 ${fourColLayout ? "xl:grid-cols-4" : "xl:grid-cols-6"}`}
           >
             {sortedCamps.map((camp) => (
               <AvailableCampCard key={camp._id} camp={camp} />
