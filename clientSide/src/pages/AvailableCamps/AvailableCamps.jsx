@@ -10,7 +10,7 @@ import { FaSearch } from "react-icons/fa";
 const AvailableCamps = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("");
-  const [threeColLayout, setThreeColLayout] = useState(true);
+  const [fourColLayout, setFourColLayout] = useState(true);
 
   const { data: camps, isLoading } = useQuery({
     queryKey: ["camps"],
@@ -93,16 +93,16 @@ const AvailableCamps = () => {
 
             <button
               className="btn mt-1"
-              onClick={() => setThreeColLayout(!threeColLayout)}
+              onClick={() => setFourColLayout(!fourColLayout)}
             >
-              {threeColLayout ? "Switch to 2 Columns" : "Switch to 3 Columns"}
+              {fourColLayout ? "Switch to 6 Columns" : "Switch to 4 Columns"}
             </button>
           </div>
         </div>
 
         {sortedCamps.length > 0 ? (
           <div
-            className={`grid grid-cols-1 gap-8 pt-12 ${threeColLayout ? "md:grid-cols-3" : "md:grid-cols-2"} `}
+            className={`grid grid-cols-1 gap-8 pt-12 ${fourColLayout ? "md:grid-cols-4" : "md:grid-cols-6"} `}
           >
             {sortedCamps.map((camp) => (
               <AvailableCampCard key={camp._id} camp={camp} />
