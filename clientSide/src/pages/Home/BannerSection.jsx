@@ -27,7 +27,7 @@ const BannerSection = () => {
       title: "Building Community Resilience Post-Disaster",
       text: "Post-flood relief camps provided care to 800+ affected families. Survivors gained hope and resources, strengthening community bonds.",
       image:
-        "https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1680759291006-0529e401b263?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 

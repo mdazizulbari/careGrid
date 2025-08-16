@@ -47,8 +47,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/available-camps"
+              to="https://smabari.netlify.app/"
               className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
+              target="_blank"
             >
               Contact Developer
             </Link>

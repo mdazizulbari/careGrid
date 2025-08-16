@@ -50,7 +50,7 @@ const CampDetails = () => {
 
   return (
     <Container>
-      <div className="hero bg-base-200 rounded-4xl">
+      <div className="hero bg-base-200 rounded-4xl min-h-[565px]">
         <div className="hero-content flex-col gap-8 p-8 lg:flex-row">
           <img
             src={campImage}
