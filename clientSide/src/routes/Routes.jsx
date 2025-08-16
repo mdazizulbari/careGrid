@@ -37,10 +37,10 @@ export const router = createBrowserRouter([
         path: "/available-camps",
         element: <AvailableCamps />,
       },
-    ],
-  },
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <SignUp /> },
+    ],
+  },
   {
     path: "/dashboard",
     element: (

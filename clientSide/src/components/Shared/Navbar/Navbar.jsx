@@ -3,7 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import { AiOutlineMenu } from "react-icons/ai";
 import Container from "../Container";
 import logo from "/logo.png";
-import avatarImg from "../../../assets/images/placeholder.jpg";
+import avatarImg from "../../../assets/images/placeholder.png";
 import { Link } from "react-router";
 
 const Navbar = () => {
