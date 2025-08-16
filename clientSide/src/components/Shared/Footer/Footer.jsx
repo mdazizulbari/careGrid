@@ -23,7 +23,7 @@ const Footer = () => {
       <nav>
         <div className="grid grid-flow-col gap-4">
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/sma.bari.shafin"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -33,7 +33,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/sma.bari.shafin/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -42,14 +42,14 @@ const Footer = () => {
               className="hover:text-primary transition hover:scale-90"
             />
           </a>
-          <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/sma_bari" target="_blank" rel="noopener noreferrer">
             <FaTwitter
               size={25}
               className="hover:text-primary transition hover:scale-90"
             />
           </a>
           <a
-            href="https://www.whatsapp.com"
+            href="https://wa.me/8801609300080"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -59,7 +59,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="mailto:support@caregrid.com"
+            href="mailto:mdazizulbarishafin@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
