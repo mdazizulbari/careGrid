@@ -14,10 +14,10 @@ import OrganizerRoute from "./OrganizerRoute";
 import AddCamp from "../components/Dashboard/Organizer/AddCamp";
 import ManageCamps from "../components/Dashboard/Organizer/ManageCamps";
 import Profile from "../components/Dashboard/Common/Profile";
-import { Suspense } from "react";
 import ManageRegisteredCamps from "../components/Dashboard/Organizer/ManageRegisteredCamps";
 import RegisteredCamps from "../components/Dashboard/Participant/RegisteredCamps";
 import PaymentHistory from "../components/Dashboard/Participant/PaymentHistory";
+import HealthTipsPage from "../pages/HealthTips/HealthTipsPage";
 
 export const router = createBrowserRouter([
   {
@@ -34,11 +34,21 @@ export const router = createBrowserRouter([
         element: <CampDetails />,
       },
       {
+        path: "/health-tips",
+        element: <HealthTipsPage />,
+      },
+      {
         path: "/available-camps",
         element: <AvailableCamps />,
       },
-  { path: "/login", element: <Login /> },
-  { path: "/signup", element: <SignUp /> },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
     ],
   },
   {

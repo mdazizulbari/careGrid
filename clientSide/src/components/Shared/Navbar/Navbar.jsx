@@ -26,6 +26,14 @@ const Navbar = () => {
           Available Camps
         </Link>
       </li>
+      <li>
+        <Link
+          to="/health-tips"
+          className="hover:bg-base-300 block px-4 py-3 font-semibold transition"
+        >
+          Health Tips
+        </Link>
+      </li>
 
       {user ? (
         <>
