@@ -1,18 +1,18 @@
-import { useState } from "react";
+import React from "react";
 import Container from "../../components/Shared/Container";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/Shared/Button/Button";
-import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import JoinCampModal from "../../components/Modal/JoinCampModal";
 import axios from "axios";
+import { useState } from "react";
 
-const CampDetails = () => {
-  const { id } = useParams();
+const RecommendedByCareGrid = () => {
+  const hardcodedCampId = "68a127f873a239ce4e672073"; // Hardcoded objectId for a specific camp
   const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
+
   const open = () => {
     setIsOpen(true);
   };
@@ -21,17 +21,17 @@ const CampDetails = () => {
   };
 
   const query = useQuery({
-    queryKey: ["camp", id],
+    queryKey: ["recommendedCamp", hardcodedCampId],
     queryFn: async () => {
       const { data } = await axios(
-        `${import.meta.env.VITE_API_URL}/camp/${id}`,
+        `${import.meta.env.VITE_API_URL}/camp/${hardcodedCampId}`,
       );
       return data;
     },
   });
   console.log(query);
   const { data: camp, isLoading, refetch } = query;
-  console.log(camp);
+
   const {
     name,
     campFee,
@@ -45,11 +45,21 @@ const CampDetails = () => {
   } = camp || {};
 
   if (isLoading) return <LoadingSpinner />;
-  if (!camp || typeof camp !== "object") return <p>No camps available</p>;
+  if (!camp || typeof camp !== "object") return <p>No camp available</p>;
 
   return (
     <Container>
-      <div className="hero bg-base-200 rounded-4xl min-h-[565px]">
+      <div className="flex justify-center">
+        <h2 className="text-primary font-gummy flex gap-5 text-center text-4xl font-bold md:text-5xl">
+          Recommended By
+          <span className="flex items-center justify-center gap-1">
+            <img src="/logo.png" alt="logo" className="h-8 w-8" />
+            CareGrid
+          </span>
+        </h2>
+      </div>
+
+      <div className="hero bg-base-200 mt-8 min-h-[565px] rounded-4xl">
         <div className="hero-content flex-col gap-8 p-8 lg:flex-row">
           <img
             src={campImage}
@@ -107,4 +117,4 @@ const CampDetails = () => {
   );
 };
 
-export default CampDetails;
+export default RecommendedByCareGrid;
