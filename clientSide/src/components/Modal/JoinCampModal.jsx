@@ -7,7 +7,8 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
-const JoinCampModal = ({ camp, isOpen, close, user, refetch }) => {
+// Modal for camp registration
+const JoinCampModal = ({ camp, isOpen, close, user, refetch, setIsJoined, campId }) => {
   const {
     formState: { errors },
     register,
@@ -16,6 +17,7 @@ const JoinCampModal = ({ camp, isOpen, close, user, refetch }) => {
   const axiosSecure = useAxiosSecure();
   const [isUploading, setIsUploading] = useState(false);
 
+  // Handle form submission and update joined status
   const onSubmit = async (participantData) => {
     setIsUploading(true);
     participantData.paymentStatus = false;
@@ -38,6 +40,14 @@ const JoinCampModal = ({ camp, isOpen, close, user, refetch }) => {
         participantCountData?.modifiedCount == 1
       ) {
         toast.success("Registration Successful");
+
+        // Update local storage with joined camp ID (client-side tracking)
+        const joinedCamps = JSON.parse(localStorage.getItem("joinedCamps")) || [];
+        if (!joinedCamps.includes(campId)) {
+          joinedCamps.push(campId);
+          localStorage.setItem("joinedCamps", JSON.stringify(joinedCamps));
+          setIsJoined(true); // Update parent component state
+        }
       }
     } catch (error) {
       console.log(error);

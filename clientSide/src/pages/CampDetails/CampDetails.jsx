@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Explicitly import useEffect
 import Container from "../../components/Shared/Container";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/Shared/Button/Button";
@@ -8,26 +8,32 @@ import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import JoinCampModal from "../../components/Modal/JoinCampModal";
 import axios from "axios";
 
+// Component to display detailed camp information and handle registration
 const CampDetails = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isJoined, setIsJoined] = useState(false); // Track if user has joined the camp
   console.log(isOpen);
+
+  // Open the registration modal
   const open = () => {
     setIsOpen(true);
   };
+
+  // Close the registration modal
   const close = () => {
     setIsOpen(false);
   };
 
+  // Fetch camp details using TanStack Query
   const query = useQuery({
     queryKey: ["camp", id],
     queryFn: async () => {
-      const { data } = await axios(
-        `${import.meta.env.VITE_API_URL}/camp/${id}`,
-      );
+      const { data } = await axios(`${import.meta.env.VITE_API_URL}/camp/${id}`);
       return data;
     },
+    enabled: !!id, // Ensure query only runs when id is available
   });
   console.log(query);
   const { data: camp, isLoading, refetch } = query;
@@ -43,6 +49,15 @@ const CampDetails = () => {
     participantCount,
     _id,
   } = camp || {};
+
+  // Check local storage for joined status only once on mount or id change
+  useEffect(() => {
+    const joinedCamps = JSON.parse(localStorage.getItem("joinedCamps")) || [];
+    if (joinedCamps.includes(id)) {
+      setIsJoined(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]); // Dependency on id only to avoid re-renders
 
   if (isLoading) return <LoadingSpinner />;
   if (!camp || typeof camp !== "object") return <p>No camps available</p>;
@@ -87,9 +102,9 @@ const CampDetails = () => {
             </div>
             <div className="mt-3">
               <Button
-                disabled={!user}
+                disabled={!user || isJoined} // Disable if not logged in or already joined
                 onClick={open}
-                label={user ? "Join Camp" : "Login to join camp"}
+                label={isJoined ? "Already Joined" : user ? "Join Camp" : "Login to join camp"}
               ></Button>
             </div>
 
@@ -99,6 +114,8 @@ const CampDetails = () => {
               camp={camp}
               user={user}
               refetch={refetch}
+              setIsJoined={setIsJoined} // Pass function to update joined status
+              campId={id} // Pass camp ID for tracking
             />
           </div>
         </div>
