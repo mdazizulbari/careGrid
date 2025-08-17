@@ -59,7 +59,7 @@ const RecommendedByCareGrid = () => {
         </h2>
       </div>
 
-      <div className="hero bg-base-200 mt-8 min-h-[565px] rounded-4xl">
+      <div className="hero w-full bg-base-200 mt-8 min-h-[565px] rounded-4xl">
         <div className="hero-content flex-col gap-8 p-8 lg:flex-row">
           <img
             src={campImage}

@@ -5,6 +5,7 @@ import HowToSection from "./HowToSection";
 import Container from "../../components/Shared/Container";
 import RecommendedByCareGrid from "./RecommendedByCareGrid";
 import JoinOurNewsletter from "./JoinOurNewsletter";
+import CampsThisMonth from "./CampsThisMonth";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <BannerSection />
         <CampsSection />
         <RecommendedByCareGrid />
+        <CampsThisMonth />
         <HowToSection />
         <JoinOurNewsletter />
       </div>

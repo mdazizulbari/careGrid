@@ -3,7 +3,7 @@ import Container from "../../components/Shared/Container";
 import Button from "../../components/Shared/Button/Button";
 import { useState } from "react";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
-import axios from "axios";
+// import axios from "axios";
 import { toast } from "react-toastify"; // Assuming react-toastify is used
 
 const JoinOurNewsletter = () => {
@@ -34,7 +34,8 @@ const JoinOurNewsletter = () => {
           Join Our Newsletter
         </h2>
       </div>
-      <div className="hero bg-base-200 mt-8 min-h-[565px] rounded-4xl">
+
+      <div className="hero bg-base-200 mt-8 min-h-[565px] max-w-5xl rounded-4xl">
         <div className="hero-content flex-col-reverse gap-8 p-8 lg:flex-row">
           {/* contents */}
           <div>
