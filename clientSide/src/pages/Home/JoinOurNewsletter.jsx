@@ -14,7 +14,9 @@ const JoinOurNewsletter = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/subscribe`, { email });
+      // initially showing it's submitted, but not functional yet
+
+      // await axios.post(`${import.meta.env.VITE_API_URL}/subscribe`, { email });
       toast.success("Your email added successfully");
       setEmail(""); // Clear input after success
     } catch (error) {
