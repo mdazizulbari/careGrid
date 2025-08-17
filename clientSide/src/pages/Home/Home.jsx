@@ -4,6 +4,7 @@ import BannerSection from "./BannerSection";
 import HowToSection from "./HowToSection";
 import Container from "../../components/Shared/Container";
 import RecommendedByCareGrid from "./RecommendedByCareGrid";
+import JoinOurNewsletter from "./JoinOurNewsletter";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <CampsSection />
         <RecommendedByCareGrid />
         <HowToSection />
+        <JoinOurNewsletter />
       </div>
     </Container>
   );
