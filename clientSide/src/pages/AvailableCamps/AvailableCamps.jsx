@@ -6,6 +6,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 
 const AvailableCamps = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -88,6 +89,12 @@ const AvailableCamps = () => {
                 <li>
                   <a onClick={() => setSortBy("popular")}>Most Registered</a>
                 </li>
+                <li>
+                  <a onClick={() => setSortBy("")}>
+                    <MdCancel /> Cancel Sort
+                  </a>{" "}
+                  {/* Added option */}
+                </li>
               </ul>
             </div>
 
@@ -102,7 +109,6 @@ const AvailableCamps = () => {
 
         {sortedCamps.length > 0 ? (
           <div
-            // className={`grid grid-cols-1 gap-8 pt-12 ${fourColLayout ? "md:grid-cols-4" : "md:grid-cols-6"} `}
             className={`grid grid-cols-1 gap-8 pt-12 md:grid-cols-1 lg:grid-cols-2 ${fourColLayout ? "xl:grid-cols-4" : "xl:grid-cols-6"}`}
           >
             {sortedCamps.map((camp) => (
