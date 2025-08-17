@@ -38,7 +38,7 @@ const CampsThisMonth = () => {
 
   return (
     <Container>
-      <div className="mt-16">
+      <div className="">
         {/* Added margin-top for spacing */}
         <h2 className="text-primary font-gummy text-center text-4xl font-bold md:text-5xl">
           Camps This Happening Month

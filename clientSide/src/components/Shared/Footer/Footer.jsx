@@ -7,6 +7,7 @@ import {
   FaTwitter,
   FaWhatsapp,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -19,7 +20,16 @@ const Footer = () => {
           Empowering Health, Connecting Communities
         </p>
         <p>© {new Date().getFullYear()} CareGrid. All right reserved</p>
+
+        <Link
+          to="https://smabari.netlify.app/"
+          className="btn btn-primary btn-soft"
+          target="_blank"
+        >
+          Visit Developer Portfolio
+        </Link>
       </aside>
+
       <nav>
         <div className="grid grid-flow-col gap-4">
           <a
@@ -42,7 +52,11 @@ const Footer = () => {
               className="hover:text-primary transition hover:scale-90"
             />
           </a>
-          <a href="https://x.com/sma_bari" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://x.com/sma_bari"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter
               size={25}
               className="hover:text-primary transition hover:scale-90"
