@@ -50,7 +50,7 @@ const RecommendedByCareGrid = () => {
   return (
     <Container>
       <div className="flex justify-center">
-        <h2 className="text-primary font-gummy flex gap-5 text-center text-4xl font-bold md:text-5xl">
+        <h2 className="text-primary font-gummy text-center text-4xl font-bold md:text-5xl">
           Recommended By
           <span className="flex items-center justify-center gap-1">
             <img src="/logo.png" alt="logo" className="h-8 w-8" />

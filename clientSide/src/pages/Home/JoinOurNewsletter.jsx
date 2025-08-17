@@ -28,21 +28,13 @@ const JoinOurNewsletter = () => {
   return (
     <Container>
       <div>
-        <h2 className="text-primary font-gummy flex gap-5 text-center text-4xl font-bold md:text-5xl">
+        <h2 className="text-primary font-gummy text-center text-4xl font-bold md:text-5xl">
           Join Our Newsletter
-          <span className="flex items-center justify-center gap-1">
-            <img src="/logo.png" alt="logo" className="h-8 w-8" />
-            CareGrid
-          </span>
         </h2>
       </div>
-      <div className="hero bg-base-200 rounded-4xl min-h-[565px] mt-8">
-        <div className="hero-content flex-col gap-8 p-8 lg:flex-row">
-          <img
-            src="https://i.ibb.co.com/mrqSHgK1/Holistic-Wellness-Retreat.jpg" // Placeholder image
-            className="max-w-xs rounded-4xl shadow-2xl md:max-w-xl"
-            alt="Newsletter"
-          />
+      <div className="hero bg-base-200 mt-8 min-h-[565px] rounded-4xl">
+        <div className="hero-content flex-col-reverse gap-8 p-8 lg:flex-row">
+          {/* contents */}
           <div>
             <h1 className="text-4xl font-bold">Stay Updated with CareGrid</h1>
             <p className="pt-2 pb-6">
@@ -88,6 +80,12 @@ const JoinOurNewsletter = () => {
               </form>
             </div>
           </div>
+
+          <img
+            src="https://i.ibb.co.com/mrqSHgK1/Holistic-Wellness-Retreat.jpg" // Placeholder image
+            className="max-w-xs rounded-4xl shadow-2xl md:max-w-xl"
+            alt="Newsletter"
+          />
         </div>
       </div>
     </Container>
