@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
       <h2 className="text-primary font-gummy text-center text-4xl font-bold md:text-5xl">
         What People Are Saying
       </h2>
-      <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-2 xl:grid-cols-3">
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
@@ -76,12 +76,6 @@ const TestimonialsSection = () => {
             <p className="text-sm text-gray-500">{testimonial.role}</p>
           </div>
         ))}
-      </div>
-      <div className="mt-10 flex justify-center">
-        <Link href="/testimonials" className="btn btn-primary">
-          View More
-        </Link>{" "}
-        {/* Adjusted to href for react-router */}
       </div>
     </Container>
   );
