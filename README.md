@@ -76,17 +76,42 @@ Welcome to the _Medical Camp Management System (MCMS)_, a full-stack web applica
 ```json
 {
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "axios": "^1.4.0",
-    "jsonwebtoken": "^9.0.0",
-    "express": "^4.18.2",
-    "mongoose": "^7.0.0",
-    "tailwindcss": "^3.3.0"
+    "@headlessui/react": "^2.2.6",
+    "@stripe/react-stripe-js": "^3.7.0",
+    "@stripe/stripe-js": "^7.5.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "@tanstack/react-query": "^5.83.0",
+    "@tanstack/react-query-devtools": "^5.83.0",
+    "axios": "^1.10.0",
+    "daisyui": "^5.0.46",
+    "firebase": "^12.0.0",
+    "motion": "^12.23.12",
+    "react": "^19.1.0",
+    "react-calendar": "^6.0.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.61.0",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router": "^7.7.0",
+    "react-spinners": "^0.17.0",
+    "react-toastify": "^11.0.5",
+    "recharts": "^3.1.2",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^4.3.9"
+    "@eslint/js": "^9.30.1",
+    "@tanstack/eslint-plugin-query": "^5.81.2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "vite": "^7.0.4"
   }
 }
 ```
